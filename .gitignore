@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+*$py.class
+*.sqlite
+*.sqlite3
+*.db
+*.wal
+*.shm
+*.log
+*.jsonl
+.pytest_cache/
+.vault/
+.nexus/
+build/
+dist/
+*.egg-info/

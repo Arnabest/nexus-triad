@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nexus-triad"
+version = "1.0.0"
+description = "Zero-dependency physical execution gate, episodic memory, and skill indexing framework for AI agents."
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [
+    {name = "Antigravity Engineering"}
+]
+keywords = ["agent", "safety", "git-shadow", "memory", "bm25", "ast-verification"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development :: Libraries :: Python Modules"
+]
+dependencies = []
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["nexus_gate*", "nexus_vault*", "nexus_shelf*"]
+
+[tool.setuptools]
+py-modules = ["nexus_gate", "nexus_vault", "nexus_shelf"]
