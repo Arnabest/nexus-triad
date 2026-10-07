@@ -7,13 +7,21 @@ import tempfile
 import unittest
 from pathlib import Path
 
-_PKG_PARENT = Path(__file__).resolve().parent.parent.parent
+_REPO_ROOT = Path(__file__).resolve().parent.parent
+if str(_REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(_REPO_ROOT))
+_PKG_PARENT = _REPO_ROOT.parent
 if str(_PKG_PARENT) not in sys.path:
     sys.path.insert(0, str(_PKG_PARENT))
 
-from nexus_triad_standalone.nexus_gate import NexusGate, GroundTruthVerifier, PlanCompiler
-from nexus_triad_standalone.nexus_vault import MemoryVaultEngine
-from nexus_triad_standalone.nexus_shelf import SkillShelfEngine
+try:
+    from nexus_triad_standalone.nexus_gate import NexusGate, GroundTruthVerifier, PlanCompiler
+    from nexus_triad_standalone.nexus_vault import MemoryVaultEngine
+    from nexus_triad_standalone.nexus_shelf import SkillShelfEngine
+except ImportError:
+    from nexus_gate import NexusGate, GroundTruthVerifier, PlanCompiler
+    from nexus_vault import MemoryVaultEngine
+    from nexus_shelf import SkillShelfEngine
 
 
 class TestNexusTriadStandalone(unittest.TestCase):
